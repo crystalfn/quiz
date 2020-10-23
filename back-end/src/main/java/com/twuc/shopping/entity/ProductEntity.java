@@ -1,6 +1,6 @@
 package com.twuc.shopping.entity;
 
-import com.twuc.shopping.dto.Product;
+import com.twuc.shopping.dto.ProductDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,12 +27,12 @@ public class ProductEntity {
     private String unit;
     private String imageUrl;
 
-    public static ProductEntity convertProductToProductEntity(Product product) {
+    public static ProductEntity convertProductToProductEntity(ProductDto productDto) {
         return ProductEntity.builder()
-            .name(product.getName())
-            .price(product.getPrice())
-            .imageUrl(product.getImageUrl())
-            .unit(product.getUnit())
+            .name(productDto.getName())
+            .price(productDto.getPrice())
+            .imageUrl(productDto.getImageUrl())
+            .unit(productDto.getUnit())
             .build();
     }
 }

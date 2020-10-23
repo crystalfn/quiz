@@ -1,7 +1,7 @@
 package com.twuc.shopping.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.twuc.shopping.dto.Product;
+import com.twuc.shopping.dto.ProductDto;
 import com.twuc.shopping.entity.ProductEntity;
 import com.twuc.shopping.repository.ProductRepository;
 import com.twuc.shopping.utils.EntityUtil;
@@ -51,9 +51,9 @@ class ProductsControllerTest {
 
     @Test
     void should_add_product() throws Exception {
-        Product product = ProductUtil.creatProduct();
+        ProductDto productDto = ProductUtil.creatProduct();
         ObjectMapper objectMapper = new ObjectMapper();
-        String productJson = objectMapper.writeValueAsString(product);
+        String productJson = objectMapper.writeValueAsString(productDto);
 
         mockMvc.perform(post("/product")
             .content(productJson)
@@ -70,9 +70,9 @@ class ProductsControllerTest {
         ProductEntity productEntity = EntityUtil.createProductEntity();
         productRepository.save(productEntity);
 
-        Product product = ProductUtil.creatProduct();
+        ProductDto productDto = ProductUtil.creatProduct();
         ObjectMapper objectMapper = new ObjectMapper();
-        String productJson = objectMapper.writeValueAsString(product);
+        String productJson = objectMapper.writeValueAsString(productDto);
 
         mockMvc.perform(post("/product")
             .content(productJson)

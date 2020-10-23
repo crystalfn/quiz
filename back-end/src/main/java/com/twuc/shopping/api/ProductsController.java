@@ -1,6 +1,6 @@
 package com.twuc.shopping.api;
 
-import com.twuc.shopping.dto.Product;
+import com.twuc.shopping.dto.ProductDto;
 import com.twuc.shopping.exception.ProductExitsException;
 import com.twuc.shopping.service.ProductService;
 import org.springframework.http.ResponseEntity;
@@ -22,14 +22,14 @@ public class ProductsController {
     }
 
     @GetMapping("/products")
-    public ResponseEntity<List<Product>> getAllEvents() {
+    public ResponseEntity<List<ProductDto>> getAllEvents() {
         return ResponseEntity.ok(productService.getAllProducts());
     }
 
     @PostMapping("/product")
-    public ResponseEntity addProduct(@Valid @RequestBody Product product) throws ProductExitsException {
+    public ResponseEntity addProduct(@Valid @RequestBody ProductDto productDto) throws ProductExitsException {
         try {
-            productService.addProduct(product);
+            productService.addProduct(productDto);
         } catch (Exception e) {
             throw new ProductExitsException("Product exits!");
         }

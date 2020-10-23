@@ -6,21 +6,19 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.NotEmpty;
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Product {
+public class ProductDto {
     private int id;
     private String name;
     private int price;
     private String unit;
     private String imageUrl;
 
-    public static Product convertProductEntityToProduct(ProductEntity productEntity) {
-        return Product.builder()
+    public static ProductDto convertProductEntityToProduct(ProductEntity productEntity) {
+        return ProductDto.builder()
             .id(productEntity.getId())
             .name(productEntity.getName())
             .price(productEntity.getPrice())

@@ -1,10 +1,9 @@
 package com.twuc.shopping.service;
 
-import com.twuc.shopping.dto.Product;
+import com.twuc.shopping.dto.ProductDto;
 import com.twuc.shopping.entity.ProductEntity;
 import com.twuc.shopping.exception.ProductExitsException;
 import com.twuc.shopping.repository.ProductRepository;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,22 +18,22 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public List<Product> getAllProducts() {
+    public List<ProductDto> getAllProducts() {
         List<ProductEntity> productEntities = productRepository.findAll();
         return productEntities
             .stream()
-            .map(Product::convertProductEntityToProduct)
+            .map(ProductDto::convertProductEntityToProduct)
             .collect(Collectors.toList());
     }
 
-    public void addProduct(Product product) throws ProductExitsException {
+    public void addProduct(ProductDto productDto) throws ProductExitsException {
         final List<ProductEntity> productEntities = productRepository.findAll();
         for (ProductEntity productEntity : productEntities) {
-            if (productEntity.getName().equals(product.getName())) {
+            if (productEntity.getName().equals(productDto.getName())) {
                 throw new ProductExitsException("Product exist!");
             }
         }
-        ProductEntity productEntity = ProductEntity.convertProductToProductEntity(product);
+        ProductEntity productEntity = ProductEntity.convertProductToProductEntity(productDto);
         productRepository.save(productEntity);
     }
 }
