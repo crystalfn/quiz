@@ -12,8 +12,8 @@ class AddProduct extends Component {
 
   isformValuesValid = () => {
     const { name, price, unit, imageUrl } = this.state;
-    var regexp = /^[1-9]+\d*/;
-    return (name !== "") && (regexp.test(price)) && (unit !== "") && (imageUrl !== "");
+    // var regexp = /^[1-9]+\d*/;
+    return (name !== "") && (price !== 0) && (unit !== "") && (imageUrl !== "");
   }
 
   isSubmitButtonDisabled = () => {
