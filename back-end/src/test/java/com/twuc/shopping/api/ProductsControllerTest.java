@@ -36,12 +36,14 @@ class ProductsControllerTest {
 
     @Test
     void should_get_all_products() throws Exception {
-        ProductEntity productEntity = EntityUtil.createProductEntity();
-        productRepository.save(productEntity);
+        for (int i = 0; i < 6; i++) {
+            ProductEntity productEntity = EntityUtil.createProductEntity();
+            productRepository.save(productEntity);
+        }
 
         mockMvc.perform(get("/products"))
             .andExpect(status().isOk())
-            .andExpect(jsonPath("$", hasSize(1)))
+            .andExpect(jsonPath("$", hasSize(6)))
             .andExpect(jsonPath("$[0].name", is("可乐")))
             .andExpect(jsonPath("$[0].price", is(3)))
             .andExpect(jsonPath("$[0].unit", is("瓶")));
