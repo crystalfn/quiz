@@ -6,6 +6,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import Header from "./components/header/Header";
+import Footer from "./components/footer/footer";
 import ShoppingMall from "./components/shoppingMall/ShoppingMall";
 import Order from "./components/order/Order";
 import AddProduct from "./components/addProduct/AddProduct";
@@ -21,6 +22,7 @@ function App() {
         <Route exact path="/add-product" component={AddProduct} />
         <Redirect form="/" to="/shopping-mall"></Redirect>
       </Switch>
+      <Footer />
     </Router>
   );
 }
