@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "可乐1",
+    "price": 1,
+    "unit": "瓶",
+    "imageUrl": "https://gd4.alicdn.com/imgextra/i2/1954271860/O1CN016e5eLI1PbvGO8EpRR_!!1954271860.jpg_400x400.jpg"
+  },
+  {
+    "id": 2,
+    "name": "可乐2",
+    "price": 1,
+    "unit": "瓶",
+    "imageUrl": "https://gd4.alicdn.com/imgextra/i2/1954271860/O1CN016e5eLI1PbvGO8EpRR_!!1954271860.jpg_400x400.jpg"
+  },
+  {
+    "id": 3,
+    "name": "可乐3",
+    "price": 1,
+    "unit": "瓶",
+    "imageUrl": "https://gd4.alicdn.com/imgextra/i2/1954271860/O1CN016e5eLI1PbvGO8EpRR_!!1954271860.jpg_400x400.jpg"
+  },
+  {
+    "id": 4,
+    "name": "可乐4",
+    "price": 1,
+    "unit": "瓶",
+    "imageUrl": "https://gd4.alicdn.com/imgextra/i2/1954271860/O1CN016e5eLI1PbvGO8EpRR_!!1954271860.jpg_400x400.jpg"
+  },
+  {
+    "id": 5,
+    "name": "可乐5",
+    "price": 1,
+    "unit": "瓶",
+    "imageUrl": "https://gd4.alicdn.com/imgextra/i2/1954271860/O1CN016e5eLI1PbvGO8EpRR_!!1954271860.jpg_400x400.jpg"
+  },
+  {
+    "id": 6,
+    "name": "可乐6",
+    "price": 1,
+    "unit": "瓶",
+    "imageUrl": "https://gd4.alicdn.com/imgextra/i2/1954271860/O1CN016e5eLI1PbvGO8EpRR_!!1954271860.jpg_400x400.jpg"
+  }
+]
