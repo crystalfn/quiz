@@ -7,10 +7,24 @@ class AddProduct extends Component {
     price: 0,
     unit: "",
     imageUrl: "",
+    submitButtonDisabled: true,
   };
+
+  isformValuesValid = () => {
+    const { name, price, unit, imageUrl } = this.state;
+    var regexp = /^[1-9]+\d*/;
+    return (name !== "") && (regexp.test(price)) && (unit !== "") && (imageUrl !== "");
+  }
+
+  isSubmitButtonDisabled = () => {
+    this.setState({
+      submitButtonDisabled: !this.isformValuesValid(),
+    })
+  }
 
   handleFormSubmit = (event) => {
     event.preventDefault();
+    console.log(JSON.stringify(this.state));
     const url = "http://localhost:8080/product";
     fetch(url, {
       mode: 'cors',
@@ -38,10 +52,11 @@ class AddProduct extends Component {
     this.setState({
       [field]: event.target.value,
     });
+    this.isSubmitButtonDisabled();
   };
 
   render() {
-    const { name, price, unit, imageUrl } = this.state;
+    const { name, price, unit, imageUrl, submitButtonDisabled } = this.state;
     return (
       <div className="add-product-form">
         <h1>添加商品</h1>
@@ -92,7 +107,7 @@ class AddProduct extends Component {
             />
           </div>
 
-          <button className="add-product-submit-btn">提交</button>
+          <button className="add-product-submit-btn" disabled={submitButtonDisabled}>提交</button>
         </form>
       </div>
     );
