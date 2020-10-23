@@ -24,7 +24,6 @@ class AddProduct extends Component {
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    console.log(JSON.stringify(this.state));
     const url = "http://localhost:8080/product";
     fetch(url, {
       mode: 'cors',
@@ -36,7 +35,6 @@ class AddProduct extends Component {
       body: JSON.stringify(this.state),
     })
       .then((response) => {
-        console.log(response);
         if (response.status === 400) {
           alert("商品名称已存在，请输入新的商品名称！");
           return;
