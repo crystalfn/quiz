@@ -1,0 +1,19 @@
+.add-product-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-product-form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  margin: 10px
+}
