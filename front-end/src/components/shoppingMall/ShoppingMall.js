@@ -1,13 +1,27 @@
 import React, { Component } from "react";
-import productsData from "./data.json";
 import Product from "./product/Product";
 import './shoppingMall.css';
 
 class ShoppingMall extends Component {
+  state = {
+    productsData: [],
+  }
+
+  componentDidMount() {
+    const url = "http://localhost:8080/products";
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+          productsData: data,
+        });
+      });
+  }
+
   render() {
     return (
       <section className="Products">
-        {productsData.map((item) => (
+        {this.state.productsData.map((item) => (
           <Product
             key={item.id}
             imageUrl={item.imageUrl}
