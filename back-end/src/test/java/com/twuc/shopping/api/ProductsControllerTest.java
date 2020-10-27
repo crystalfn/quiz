@@ -6,6 +6,7 @@ import com.twuc.shopping.entity.ProductEntity;
 import com.twuc.shopping.repository.ProductRepository;
 import com.twuc.shopping.utils.EntityUtil;
 import com.twuc.shopping.utils.ProductUtil;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -33,6 +34,11 @@ class ProductsControllerTest {
     MockMvc mockMvc;
     @Autowired
     ProductRepository productRepository;
+
+    @BeforeEach
+    void setUp() {
+        productRepository.deleteAll();
+    }
 
     @Test
     void should_get_all_products() throws Exception {
